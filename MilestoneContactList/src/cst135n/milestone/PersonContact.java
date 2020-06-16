@@ -13,9 +13,8 @@ public class PersonContact extends BaseContact {
 	private LocalDate dateOfBirth;
 	private String description;
 	private ArrayList<BaseContact> Relatives = new ArrayList<>();
-	
-	
-	//Constructor
+
+	// Constructor
 	public PersonContact(int contactNumber, String contactName, String contactPhone, ArrayList<Photo> photos,
 			Location location, LocalDate dateOfBirth, String description, ArrayList<BaseContact> relatives) {
 		super(contactNumber, contactName, contactPhone, photos, location);
@@ -23,34 +22,37 @@ public class PersonContact extends BaseContact {
 		this.description = description;
 		Relatives = relatives;
 	}
-	
-	//Getters/Setters
+
+	// Getters/Setters
 	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
+
 	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public ArrayList<BaseContact> getRelatives() {
 		return Relatives;
 	}
+
 	public void setRelatives(ArrayList<BaseContact> relatives) {
 		Relatives = relatives;
 	}
-	
-	//ToString
+
+	// ToString
 	@Override
 	public String toString() {
-		return "PersonContact [dateOfBirth=" + dateOfBirth + ", description=" + description + ", Relatives=" + Relatives
-				+ "]";
+		return "PersonContact [" + super.toString() + "dateOfBirth=" + dateOfBirth + ", description=" + description
+				+ ", Relatives=" + Relatives + "\n]";
 	}
-	
-	
-	
+
 }

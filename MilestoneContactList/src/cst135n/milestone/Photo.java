@@ -54,8 +54,8 @@ public class Photo {
 
 
 
-	public void setDateOfPhoto(LocalDate dateOfPhoto) {
-		this.dateOfPhoto = dateOfPhoto;
+	public void setDateOfPhoto(LocalDate localDate) {
+		this.dateOfPhoto = localDate;
 	}
 
 

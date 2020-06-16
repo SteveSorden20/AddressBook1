@@ -37,10 +37,9 @@ public class BusinessContact extends BaseContact{
 		URL = uRL;
 	}
 
-	//ToString
 	@Override
 	public String toString() {
-		return "BusinessContact [hours=" + hours + ", URL=" + URL + "]";
+		return "BusinessContact [" + super.toString() + "hours=" + hours + ", URL=" + URL + "\n]";
 	}
 	
 	

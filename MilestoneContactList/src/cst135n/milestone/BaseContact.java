@@ -12,11 +12,11 @@ public class BaseContact {
 	private int ContactNumber;
 	private String ContactName;
 	private String ContactPhone;
-	//Has a Relationship
+	// Has a Relationship
 	private ArrayList<Photo> photos = new ArrayList<>();
 	private Location location;
-	
-	//Constructor
+
+	// Constructor
 	public BaseContact(int contactNumber, String contactName, String contactPhone, ArrayList<Photo> photos,
 			Location location) {
 		super();
@@ -24,15 +24,16 @@ public class BaseContact {
 		ContactName = contactName;
 		ContactPhone = contactPhone;
 		this.photos = photos;
+		this.location = location;
 	}
-	
+
 	public BaseContact(int contactNumber, String contactName) {
 		super();
 		ContactNumber = contactNumber;
 		ContactName = contactName;
 	}
 
-	//Getters/Setters
+	// Getters/Setters
 	public int getContactNumber() {
 		return ContactNumber;
 	}
@@ -73,13 +74,11 @@ public class BaseContact {
 		this.location = location;
 	}
 
-	//ToString
+	// ToString
 	@Override
 	public String toString() {
 		return "BaseContact [ContactNumber=" + ContactNumber + ", ContactName=" + ContactName + ", ContactPhone="
 				+ ContactPhone + ", photos=" + photos + ", location=" + location + "]";
 	}
-	
-	
-	
+
 }
