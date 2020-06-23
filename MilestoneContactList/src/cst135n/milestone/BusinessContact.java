@@ -19,6 +19,13 @@ public class BusinessContact extends BaseContact{
 		this.hours = hours;
 		URL = uRL;
 	}
+	
+	public BusinessContact(int contactNumber, String contactName, String contactPhone, String hours, String uRL) {
+		super(contactNumber, contactName, contactPhone);
+		this.hours = hours;
+		URL = uRL;
+	}
+
 
 	//Getters/Setters
 	public String getHours() {
@@ -39,7 +46,7 @@ public class BusinessContact extends BaseContact{
 
 	@Override
 	public String toString() {
-		return "BusinessContact [" + super.toString() + "hours=" + hours + ", URL=" + URL + "\n]";
+		return "Business Contact|" + super.getContactNumber() + "|"+ super.getContactName() + "|" + super.getContactPhone() + "|" + hours + "|" + URL + "\n";
 	}
 	
 	

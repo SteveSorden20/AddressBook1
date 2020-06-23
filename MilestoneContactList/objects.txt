@@ -1,0 +1,4 @@
+Business Contact|1|A|a|a|a
+Person Contact|1|SDSFD|asdf|null|2000-01-01
+Person Contact|2|HFGH|sdfhgs|null|2000-01-02
+Business Contact|4|SFGSDF|sdfgsd|sdfgsdf|dfgdfs

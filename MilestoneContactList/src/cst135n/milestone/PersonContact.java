@@ -22,6 +22,14 @@ public class PersonContact extends BaseContact {
 		this.description = description;
 		Relatives = relatives;
 	}
+	
+	public PersonContact(int contactNumber, String contactName, String contactPhone, /*LocalDate dateOfBirth */String description) {
+		super(contactNumber, contactName, contactPhone);
+//		this.dateOfBirth = dateOfBirth;
+		this.description = description;
+		
+	}
+
 
 	// Getters/Setters
 	public LocalDate getDateOfBirth() {
@@ -51,8 +59,7 @@ public class PersonContact extends BaseContact {
 	// ToString
 	@Override
 	public String toString() {
-		return "PersonContact [" + super.toString() + "dateOfBirth=" + dateOfBirth + ", description=" + description
-				+ ", Relatives=" + Relatives + "\n]";
+		return "Person Contact|"+ super.getContactNumber() + "|"+ super.getContactName() + "|" + super.getContactPhone() + "|" + dateOfBirth + "|" + description+ "\n" ;
 	}
 
 }

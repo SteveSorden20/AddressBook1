@@ -16,19 +16,34 @@ public class AddressBook {
 
 	// has a
 	ArrayList<BaseContact> Contact = new ArrayList<>();
+	private String name;
 	Scanner sc = new Scanner(System.in);
 
-	DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-	// counts and numbers all contacts
-	int countID = 0;
-
+	DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+	
+	public AddressBook() {
+		this.name = "DEFAULT";
+	}
+	public AddressBook(String name) {
+		this.name = name;
+	}
+	
+	public ArrayList<BaseContact> getContact(){
+		return Contact;
+	}
+	public void setContact(PersonContact p) {
+		Contact.add(p);
+	}
+	public void setContact(BusinessContact p) {
+		Contact.add(p);
+	}
+	
 	// methods
 	public void displayMenu() {
-		// creates userinterface for menu
+		// creates user interface for menu
 		Menu: do {
 			System.out.println("++++++++++++++++++++++++++++++");
-			System.out.println("+++    ADDRESS BOOK MENU   +++");
+			System.out.println("+++" +name+"'s ADDRESS BOOK MENU   +++");
 			System.out.println("++++++++++++++++++++++++++++++");
 			System.out.println("1] ADD CONTACT");
 			System.out.println("2] REMOVE CONTACT");
@@ -85,7 +100,8 @@ public class AddressBook {
 		System.out.println(" Is contact Business or Personal? (type B or P)");
 		String contactChoice = sc.nextLine().toUpperCase();
 		if (contactChoice.equals("P")) {
-			System.out.println(" Contact ID: " + ++countID);
+			System.out.println(" Contact ID: " );
+			int countID = Integer.parseInt(sc.nextLine());
 			System.out.println(" Contact Name: ");
 			String contactName = sc.nextLine().toUpperCase();
 			System.out.println(" Contact Phone: ");
@@ -99,7 +115,7 @@ public class AddressBook {
 				System.out.println(" Photo Id: " + ++countPhotoID);
 				System.out.println(" Photo filename: ");
 				String filename = sc.nextLine();
-				System.out.println(" Photo date: ");
+				System.out.println(" Photo date(format MM/dd/yyy): ");
 				String date = sc.nextLine();
 				LocalDate localDate = LocalDate.parse(date, dateTimeFormatter);
 				System.out.println(" Photo description: ");
@@ -124,7 +140,7 @@ public class AddressBook {
 			String state = sc.nextLine();
 
 			// unique to person contact
-			System.out.println(" Contact Date of Birth: ");
+			System.out.println(" Contact Date of Birth(format MM/dd/yyy): ");
 			String dateOfBirth = sc.nextLine();
 			LocalDate localDate2 = LocalDate.parse(dateOfBirth, dateTimeFormatter);
 			System.out.println(" Contact Description: ");
@@ -161,7 +177,8 @@ public class AddressBook {
 			System.out.println("Personal contact has been added to your address book.");
 		} else // repeats code for business class
 		{
-			System.out.println(" Contact ID: " + ++countID);
+			System.out.println(" Contact ID: " );
+			int countID = Integer.parseInt(sc.nextLine());
 			System.out.println(" Contact Name: ");
 			String contactName = sc.nextLine().toUpperCase();
 			System.out.println(" Contact Phone: ");
@@ -174,7 +191,7 @@ public class AddressBook {
 				System.out.println(" Photo Id: " + ++countPhotoID);
 				System.out.println(" Photo filename: ");
 				String filename = sc.nextLine();
-				System.out.println(" Photo date: ");
+				System.out.println(" Photo date(format MM/dd/yyy): ");
 				String date = sc.nextLine();
 				LocalDate localDate = LocalDate.parse(date, dateTimeFormatter);
 				System.out.println(" Photo description: ");
@@ -197,6 +214,7 @@ public class AddressBook {
 			System.out.println(" State Name: ");
 			String state = sc.nextLine();
 
+			//unique to Business Contact
 			System.out.println(" Contact Hours of Operation: ");
 			String hours = sc.nextLine();
 			System.out.println(" Contact Website URL: ");
@@ -403,7 +421,7 @@ public class AddressBook {
 		if (Contact.size() == 0) {
 			System.out.println("There are currently no contacts in your address book");
 		} else {
-			System.out.println(Contact);
+			System.out.println(Contact +"\n");
 		}
 	}
 
@@ -437,9 +455,9 @@ public class AddressBook {
 		Collections.sort(Contact, (s1, s2)-> s1.getContactName().compareTo(s2.getContactName()));
 		}else if(choice == 2) {
 		Collections.sort(Contact, (s1, s2)-> s1.getContactPhone().compareTo(s2.getContactPhone()));
+		}else {
+		Collections.sort(Contact, (s1, s2)-> Integer.compare( s1.getContactNumber(), s2.getContactNumber()));
 		}
-		//Collections.sort(Contact, (s1, s2)-> -s1.getContactNumber().compareTo(s2.getContactNumber()));
-		
 		System.out.println(Contact);
 	}
 
@@ -447,7 +465,7 @@ public class AddressBook {
 		System.out.println("What contact Name are you looking for: ");
 		String search = sc.nextLine().toUpperCase();
 		for (BaseContact c : Contact) {
-			if (c.getContactName().contentEquals(search)) {
+			if (c.getContactName().equals(search)) {
 				System.out.println(c);
 			}
 		}

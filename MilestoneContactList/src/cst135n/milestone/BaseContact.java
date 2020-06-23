@@ -26,6 +26,14 @@ public class BaseContact {
 		this.photos = photos;
 		this.location = location;
 	}
+	
+	public BaseContact(int contactNumber, String contactName, String contactPhone) {
+		super();
+		ContactNumber = contactNumber;
+		ContactName = contactName;
+		ContactPhone = contactPhone;
+		
+	}
 
 	public BaseContact(int contactNumber, String contactName) {
 		super();
@@ -77,8 +85,8 @@ public class BaseContact {
 	// ToString
 	@Override
 	public String toString() {
-		return "BaseContact [ContactNumber=" + ContactNumber + ", ContactName=" + ContactName + ", ContactPhone="
-				+ ContactPhone + ", photos=" + photos + ", location=" + location + "]";
+		return ContactNumber + "|" + ContactName + "|"
+				+ ContactPhone + "|" + photos + "|n" + location ;
 	}
 
 }
